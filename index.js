@@ -145,8 +145,6 @@ class Game {
         this.gameScreen.style.width = `${0}px`;
         this.gameScreen.style.display = "none";
         console.log("Game end screen", this.stats);
-        // this.stats.style.display = "none";
-        // this.clockContainer.style.display = "none";
         this.gameEndScreen.style.display = "inherit";
         if (this.timer <= 0) {
           this.endMessage.innerText = `You won! You finished with a score of ${this.score} and ${this.returnLivesMessage()}!`;
