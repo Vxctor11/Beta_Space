@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="game-style.css">
+</head>
+<body>
+    <div id="game-intro">
+        <img src="1IntroLogo.png" alt="" class="logo-img" />
+        <br />
+    <img id="insert-coin" src="3insert_coin.gif" width="300pxpx" alt="insert-coin">
+      </div>
+
+        <div id="game-container">
+            <div id="stats-container">
+                <p>Score: <span id="score">0</span></p>
+                <p>Lives: <span id="lives">3</span></p>
+            </div>
+            <div id="clock-container">
+                <p>Time left: <span id="clock">03:00</span></p>
+            </div>
+
+            <div id="game-screen">
+                <canvas id="board"></canvas>
+            </div>
+
+            <div id="game-end">
+                <img src="7game-over.png" alt="" class="logo-img" />
+                <br />
+                <p id="end-message"></p>
+                <br />
+                <button id="restart-button">Restart</button>
+            </div>
+        </div>
+     
+
+    <script src="game.js"></script>
+</body>
+</html>

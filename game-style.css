@@ -1,0 +1,61 @@
+body {
+    font-family:'Courier New', Courier, monospace;
+    padding: 0;
+    margin: 0px;
+    height: 98vh;
+    width: 98vw;
+    background-image: url(2intro_background.png);
+    background-size: cover;
+    text-align: center;
+    align-content: center;
+    color: #fff;
+    font-size: 1.6rem;
+  }
+
+/* Intro Game */
+  .logo-img {
+    width: 400px;
+    margin-bottom:230px; 
+  }
+
+#insert-coin{
+    cursor: pointer;
+}
+
+
+/* Game */
+
+#game-container{
+    display: none;
+}
+
+#board{
+     background-image: url(4game_background.png);
+    animation: slide 15s linear infinite;
+    /* background-color: red; */
+}
+
+@keyframes slide {
+    0% {
+      background-position: 0 -1000px;
+    }
+    95% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 50px;
+    }
+  }
+
+  #game-screen {
+    display: none;
+  }
+  
+  #game-end {
+    display: none;
+  }
+  
+  #stats-container{
+    display: flex;
+    justify-content: space-evenly;
+  }
