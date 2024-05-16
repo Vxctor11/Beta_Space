@@ -1,5 +1,4 @@
 class Game {
-
     constructor() {
         this.startScreen = document.getElementById('game-intro')
         this.gameScreen = document.getElementById("game-screen")
@@ -26,6 +25,9 @@ class Game {
         
         document.addEventListener("keydown",(e) => {
             if(e.key === " "){
+                let bulletSound = new Audio('./13ship-shoot.mp3')
+                bulletSound.play()
+                bulletSound.volume = 0.1
                 const bullet  = this.player.shoot()
                 this.bulletsArr.push(bullet)
                 bullet.element.style.top = bullet.top +"px"
@@ -105,7 +107,10 @@ class Game {
                     this.obstacles.splice(i, 1)
                     obstacle.element.remove()
                     bullet.element.remove()
-                    this.score++
+                    let alienKillSound = new Audio('./15alien-killed.mp3')
+                    alienKillSound.play();
+                    alienKillSound.volume = 0.1;
+                    this.score += 100
                 }
 
             })
@@ -114,12 +119,15 @@ class Game {
                 obstacle.element.remove();
                 this.obstacles.splice(i, 1);
                 this.lives -= 1;
+                let collideSound = new Audio('./14explosion-ship.mp3')
+                collideSound.play();
+                collideSound.volume = 0.1
               }
 
             if (obstacle.top > 2000) {
                 obstacle.element.remove()
                 this.obstacles.splice(i, 1)
-                this.score++
+                this.lives -= 1;
             }
 
         })
@@ -135,6 +143,8 @@ class Game {
 
     gameOverScreen() {
         console.log("Game over");
+        audioGame.pause();
+        audioGame.currentTime = 0;
         this.player.element.remove();
 
         this.obstacles.forEach((obstacle) => {
@@ -153,3 +163,4 @@ class Game {
         }
       }
 }
+

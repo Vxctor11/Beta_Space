@@ -28,7 +28,7 @@ class Obstacle {
 
     createExplosion() {
         let newElement = document.createElement("img");
-        newElement.src = "./explosion.gif";
+        newElement.src = "./9explosion.gif";
         newElement.style.position = "absolute";
         newElement.style.left = `${this.left}px`;
         newElement.style.top = `${this.top}px`;
