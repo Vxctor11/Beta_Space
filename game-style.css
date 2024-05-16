@@ -1,41 +1,37 @@
 body {
-    font-family:'Courier New', Courier, monospace;
     padding: 0;
-    margin: 0px;
-    height: 98vh;
-    width: 98vw;
-    background-image: url(2intro_background.png);
-    background-size: cover;
     text-align: center;
-    align-content: center;
-    color: #fff;
-    font-size: 1.6rem;
+    background-image: url(./4game_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 98vh;
+    color: white;
+    width: 98vw;
   }
-
-/* Intro Game */
-  .logo-img {
-    width: 400px;
-    margin-bottom:230px; 
+  
+  #game-intro {
+    padding: 20px 0px;
   }
-
-#insert-coin{
-    cursor: pointer;
-}
-
-
-/* Game */
-
-#game-container{
+  
+  #game-container {
+    display: flex;
+    width: 98vw;
+    padding: 20px 0px;
+    justify-content: center;
+  }
+  
+  #game-screen {
     display: none;
-}
-
-#board{
-     background-image: url(4game_background.png);
+    align-content: center;
+    padding: 20px 0px;
+    overflow: hidden;
+    position: relative;
+    background-image: url(./4game_background.png);
+    background-size: cover;
     animation: slide 15s linear infinite;
-    /* background-color: red; */
-}
-
-@keyframes slide {
+  }
+  
+  @keyframes slide {
     0% {
       background-position: 0 -1000px;
     }
@@ -46,16 +42,46 @@ body {
       background-position: 0 50px;
     }
   }
-
-  #game-screen {
-    display: none;
-  }
   
   #game-end {
     display: none;
   }
   
-  #stats-container{
-    display: flex;
-    justify-content: space-evenly;
+ 
+  
+  .logo-img {
+    width: 350px;
+  }
+  
+  .arrows-img {
+    width: 150px;
+  }
+  
+#game-intro {
+    background-image: url(./2intro_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 98vh;
+}
+
+  body button {
+    font-size: 30px;
+    background-image: url(./3insert_coin.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    width: 50%;
+    height: 7%;
+    margin-bottom: 20px;
+    margin-top: 50px
+  }
+  
+  #stats-container {
+    margin-right: 2%;
+  }
+  
+  #clock-container {
+    margin-left: 2%;
+    margin-top: 1%;
   }

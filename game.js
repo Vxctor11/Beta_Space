@@ -48,8 +48,8 @@ class Game {
         }
 
         this.alienRows = 2;
-        this.alienColumns = 3;
-        this.alienCount = 5; // Number of aliens to defeat
+        this.alienColumns = 6;
+        this.alienCount = 0; // Number of aliens to defeat
         this.alienVelocityX = 1; // Alien moving speed
         
         // Bullets
@@ -57,10 +57,7 @@ class Game {
         this.bulletVelocityY = -10; // Bullet moving speed
 
         this.bullet = {
-            x: this.bulletX,
-            y: this.bulletY,
-            width: this.bulletWidth,
-            height: this.bulletHeight,
+           
             used : true
         }
         
@@ -84,8 +81,8 @@ class Game {
 
     drawAlien(){
         for(let i = 0; i < this.alienArray.length; i++){
-            let alien = this.alienArray[i];
-            if(alien.alive){
+            this.alien = this.alienArray[i];
+            if(this.alien.alive){
                 this.context.drawImage(this.alienImg, this.alien.x, this.alien.y, this.alien.width, this.alien.height);
             }
         }
@@ -94,18 +91,15 @@ class Game {
 
     update() {
         requestAnimationFrame(this.update);
-
         this.context.clearRect(0, 0, this.board.width, this.board.height)
 
         // Ship
         this.context.drawImage(this.shipImg, this.ship.x, this.ship.y, this.ship.width, this.ship.height);
 
-        //this.context.drawImage(this.alienImg, this.alien.x, this.alien.y, this.alien.width, this.alien.height);
-
         // Alien
         for (let i = 0; i < this.alienArray.length; i++) {
-            let alien = this.alienArray[i];
-            if (alien.alive) {
+           this.alien = this.alienArray[i];
+            if (this.alien.alive) {
                 this.alien = this.alienArray[i];
                 this.alien.x += this.alienVelocityX;
     
@@ -138,12 +132,14 @@ class Game {
 
         //bullet collision with aliens
         for (let j = 0; j < this.alienArray.length; j++) {
-            this.alien = this.alienArray[j];
-            if (!this.bullet.used && this.alien.alive && this.detectCollision(this.bullet, this.alien)) {
-                this.bullet.used = true;
-                this.alien.alive = false;
+            // this.alien = this.alienArray[j];
+            if ( this.detectCollision(this.bullet, this.alien)) {
+                // this.bullet.used = true;
+                // this.alien.alive = false;
+                console.log("detect")
+                this.context.clearRect(this.alien.x, this.alien.y, this.alien.width, this.alien.height)
                 this.alienCount--;
-                this.score += 100;   
+                this.score += 100;
             }
         }
 
@@ -169,43 +165,44 @@ class Game {
 
     //Create Aliens
     createAlian(){
-        for(let c = 0; c < this.alienColumns; c++){
-            for(let r = 0; r < this.alienRows; r++){
-                let alien = {
-                    img : this.alienImg,
-                    x : this.alienX,
-                    y : this.alienY,
-                    width : this.alienWidth,
-                    height : this.alienHeight,
-                    alive : true
-                }
-                this.alienArray.push(alien)
-            }
+        // for(let c = 0; c < this.alienColumns; c++){
+        //     for(let r = 0; r < this.alienRows; r++){
+        //         this.alien = {
+        //             img : this.alienImg,
+        //             x : this.alienX,
+        //             y : this.alienY,
+        //             width : this.alienWidth,
+        //             height : this.alienHeight,
+        //             alive : true
+        //         }
+        //         this.alienArray.push(this.alien)
+        //     }
 
-        }
+        // }
+        this.alienArray.push(this.alien)
         this.alienCount = this.alienArray.length
     }
 
     // Create Bullets
     shoot(e){
         if(e.code == "Space"){
-            let bullet = {
+            this.bullet = {
                 x : this.ship.x + this.shipWidth * 15 / 32,
                 y : this.ship.y,
                 width : this.sizeOfTile / 8,
                 height : this.sizeOfTile / 2,
                 used : false
             }
-            this.bulletArray.push(bullet);
+            this.bulletArray.push(this.bullet);
         }   
     }
 
     // Bullets Collision
     detectCollision(a, b) {
-        return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
-               a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
-               a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
-               a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+        return a.x < b.x + b.width &&  
+               a.x + a.width > b.x &&  
+               a.y < b.y + b.height && 
+               a.y + a.height > b.y;   
     }
 }
  
