@@ -31,26 +31,15 @@ class Player {
   
     move() {
       this.left += this.directionX;
-    //   this.top += this.directionY;
   
       if (this.left <= 10) {
         this.left = 10;
       }
   
-    //   if (this.top <= 10) {
-    //     this.top = 10;
-    //     this.directionY *= -0.5;
-    //   }
-  
       if (this.left >= this.gameScreen.offsetWidth - this.width - 10) {
         this.left = this.gameScreen.offsetWidth - this.width - 10;
         this.directionX *= -0.5;
       }
-  
-    //   if (this.top >= this.gameScreen.offsetHeight - this.height - 10) {
-    //     this.top = this.gameScreen.offsetHeight - this.height - 10;
-    //     this.directionY *= -0.5;
-    //   }
   
       this.updatePosition();
     }
@@ -59,7 +48,6 @@ class Player {
 
     updatePosition() {
       this.element.style.left = `${this.left}px`;
-    //   this.element.style.top = `${this.top}px`;
     }
   
     didCollide(obstacle) {
@@ -88,7 +76,7 @@ class Player {
           theBullet.top < obstacleRect.bottom &&
           theBullet.bottom > obstacleRect.top
         ) {
-          console.log("Colliding");
+          console.log("Bullet Hit");
           return true;
         } else {
           return false;

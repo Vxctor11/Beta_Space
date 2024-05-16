@@ -1,4 +1,5 @@
 body {
+    font-family:'Courier New', Courier, monospace;
     padding: 0;
     text-align: center;
     background-image: url(./4game_background.png);
@@ -7,6 +8,7 @@ body {
     height: 98vh;
     color: white;
     width: 98vw;
+    font-size: 2rem;
   }
   
   #game-intro {
@@ -47,16 +49,20 @@ body {
     display: none;
   }
   
- 
-  
   .logo-img {
-    width: 350px;
+    width: 650px;
+    height:350px;
+    margin-bottom:150px;
+    margin-top:30px 
   }
   
-  .arrows-img {
-    width: 150px;
-  }
-  
+  #insert-coin{
+    cursor: pointer;
+    margin-bottom:230px; 
+    width:450px;
+    height:150px;
+}
+
 #game-intro {
     background-image: url(./2intro_background.png);
     background-repeat: no-repeat;
@@ -66,15 +72,15 @@ body {
 
   body button {
     font-size: 30px;
-    background-image: url(./3insert_coin.gif);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    color: #fff;
+    background-color: transparent;
+    border: none;
     width: 50%;
     height: 7%;
-    margin-bottom: 20px;
-    margin-top: 50px
+    margin-bottom: 10px;
+    margin-top: 10px
   }
   
   #stats-container {

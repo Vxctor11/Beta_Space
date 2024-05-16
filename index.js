@@ -11,7 +11,7 @@ class Game {
         this.bulletsArr = []
         this.score = 0
         this.lives = 3
-        this.timer = 30
+        this.timer = 60
         this.gameIsOver = false
         this.gameIntervalId = null
         this.gameLoopFrequency = 1000/60
@@ -26,15 +26,15 @@ class Game {
         
         document.addEventListener("keydown",(e) => {
             if(e.key === " "){
-            const bullet  = this.player.shoot()
-               this.bulletsArr.push(bullet)
-               bullet.element.style.top = bullet.top +"px"
-               bullet.element.style.left = bullet.left + "px"
-               bullet.element.style.width = bullet.width + "px"
-               bullet.element.style.height = bullet.height + "px"
-               bullet.element.style.position = "absolute"
-               bullet.element.style.backgroundColor = bullet.backgroundColor
-               this.gameScreen.appendChild(bullet.element)
+                const bullet  = this.player.shoot()
+                this.bulletsArr.push(bullet)
+                bullet.element.style.top = bullet.top +"px"
+                bullet.element.style.left = bullet.left + "px"
+                bullet.element.style.width = bullet.width + "px"
+                bullet.element.style.height = bullet.height + "px"
+                bullet.element.style.position = "absolute"
+                bullet.element.style.backgroundColor = bullet.backgroundColor
+                this.gameScreen.appendChild(bullet.element)
               
             }
         })

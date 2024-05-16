@@ -1,10 +1,20 @@
 window.onload = function () {
-    const startButton = document.getElementById("start-button");
+     // Intro Song
+     let audioIntro = new Audio('9intro-song.mp3');
+     audioIntro.play();
+     audioIntro.volume = 0.1;
+
+    const insertCoinBtn =  document.getElementById('insert-coin')
     const restartButton = document.getElementById("restart-button");
   
     let game
   
     function startGame() {
+         // Game Song
+            audioIntro.pause();
+            let audioGame = new Audio('10game-song.mp3');
+            audioGame.play();
+            audioGame.volume = 0.1;
       
       game = new Game()
       game.start()
@@ -25,18 +35,6 @@ window.onload = function () {
           }
         }
         
-        if (e.key === "ArrowDown") {
-          if (game.player.directionY < 4) {
-            game.player.directionY += 1
-          }
-        }
-        
-        if (e.key === "ArrowUp") {
-          if (game.player.directionY > -4) {
-            game.player.directionY -= 1
-          }
-        }
-        
       })
       
     }
@@ -51,9 +49,12 @@ window.onload = function () {
   
     }
   
-    startButton.addEventListener("click", () => {
-      startGame();
-    });
+    insertCoinBtn.addEventListener('click', () => {
+        let audioInsertCoin = new Audio('./8Arcade_INSERT_COIN.mp3')
+        audioInsertCoin.play();
+        audioInsertCoin.volume = 0.1;
+        startGame()
+    })
   
     restartButton.addEventListener("click", () => {
       restartGame();
