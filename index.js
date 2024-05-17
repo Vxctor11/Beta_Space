@@ -9,7 +9,7 @@ class Game {
         this.obstacles = []
         this.bulletsArr = []
         this.score = 0
-        this.lives = 0
+        this.lives = 5
         this.timer = 60
         this.gameIsOver = false
         this.gameIntervalId = null
