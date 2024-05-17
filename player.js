@@ -2,7 +2,7 @@ class Player {
     constructor(gameScreen, left, top, width, height, imgSrc) {
       this.gameScreen = gameScreen;
       this.left = left;
-      this.top = 900    ;
+      this.top = 900;
       this.width = width;
       this.height = height;
       this.directionX = 0;

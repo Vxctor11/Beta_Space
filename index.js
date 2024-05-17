@@ -108,7 +108,8 @@ class Game {
             
             this.bulletsArr.forEach((bullet, j) => {
               bullet.top--
-              if(bullet.top < -10){
+              if(bullet.top < -30){
+                console.log("bullet delete")
                 this.bulletsArr.splice(j, 1)
                 bullet.element.remove
               }
