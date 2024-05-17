@@ -1,9 +1,22 @@
 let audioGame = new Audio('12game-song.mp3');
 
 window.onload = function () {
+
+
+
+    // #stats-container {
+    //   display: none;
+    //   margin-right: 2%;
+    //   height: 0;
+    // }
+
+    // display: none;
+    // /* margin-left: 2%;
+    // margin-top: 1%; */
+    // height: 0;
      // Intro Song
      let audioIntro = new Audio('10intro-song.mp3');
-     audioIntro.play();
+     audioIntro.play()
      audioIntro.volume = 0.1;
 
     const insertCoinBtn =  document.getElementById('insert-coin')
@@ -24,14 +37,14 @@ window.onload = function () {
       document.addEventListener('keydown', (e) => {
         
         if (e.key === "ArrowRight") {
-          if (game.player.directionX < 4) {
-            game.player.directionX += 1
+          if (game.player.directionX < 5) {
+            game.player.directionX += 5
           }
         }
         
         if (e.key === "ArrowLeft") {
-          if (game.player.directionX > -4) {
-            game.player.directionX -= 1
+          if (game.player.directionX > -5) {
+            game.player.directionX -= 5
           }
         }
         

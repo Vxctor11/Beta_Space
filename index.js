@@ -9,7 +9,7 @@ class Game {
         this.obstacles = []
         this.bulletsArr = []
         this.score = 0
-        this.lives = 3
+        this.lives = 0
         this.timer = 60
         this.gameIsOver = false
         this.gameIntervalId = null
@@ -19,6 +19,7 @@ class Game {
         this.livesElement = document.getElementById("lives");
         this.stats = document.getElementById("stats-container");
         this.clockContainer = document.getElementById("clock-container");
+        this.statsContainer = document.getElementById('stats-container')
         this.clock = document.getElementById("clock");
         this.endMessage = document.getElementById("end-message");
 
@@ -50,7 +51,17 @@ class Game {
         this.startScreen.style.padding = 0
         this.startScreen.style.height = 0
 
-        this.gameScreen.style.display = 'block'
+        this.gameScreen.style.display = 'flex'
+
+        this.clockContainer.style.display = 'block'
+        this.statsContainer.style.display = 'block'
+
+        this.clockContainer.style.height = 'fit-content'
+        this.statsContainer.style.height = 'fit-content'
+
+        this.clockContainer.style.marginLeft = '2%'
+        this.clockContainer.style.marginTop = '1%'
+        this.statsContainer.style.height = 'fit-content'
 
         this.gameIntervalId = setInterval(() => {
             this.gameLoop()
@@ -124,9 +135,12 @@ class Game {
                 collideSound.volume = 0.1
               }
 
-            if (obstacle.top > 2000) {
+            if (obstacle.top > 1000) {
                 obstacle.element.remove()
                 this.obstacles.splice(i, 1)
+                let lostLifeSound = new Audio('./16lostLife.mp3')
+                lostLifeSound.play()
+                lostLifeSound.volume = 0.1
                 this.lives -= 1;
             }
 
@@ -155,11 +169,12 @@ class Game {
         this.gameScreen.style.width = `${0}px`;
         this.gameScreen.style.display = "none";
         console.log("Game end screen", this.stats);
-        this.gameEndScreen.style.display = "inherit";
+        this.gameEndScreen.style.display = "block";
+        // this.gameEndScreen.style.height = '98.5vh'
         if (this.timer <= 0) {
-          this.endMessage.innerText = `You won! You finished with a score of ${this.score} and ${this.returnLivesMessage()}!`;
+          this.endMessage.innerText = `You won! You finished with a Score of ${this.score} and ${this.returnLivesMessage()} Lives!`;
         } else {
-          this.endMessage.innerText = `You lost!  You ran out of lives and finished with a score of ${this.score}.`;
+          this.endMessage.innerText = `You lost!  You ran out of Lives and finished with a Score of ${this.score}.`;
         }
       }
 }

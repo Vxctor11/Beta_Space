@@ -7,21 +7,25 @@ body {
     background-image: url(./4game_background.png);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 98vh;
+    height: 98.5vh;
     color: white;
     width: 98vw;
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
-  
+
   #game-intro {
-    padding: 20px 0px;
+    /* padding: 20px 0px;
+    padding-bottom: 0 */
   }
   
   #game-container {
+    display: none;
     display: flex;
     width: 98vw;
-    padding: 20px 0px;
+    /* padding: 20px 0px; */
     justify-content: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
   
   #game-screen {
@@ -33,6 +37,8 @@ body {
     background-image: url(./4game_background.png);
     background-size: cover;
     animation: slide 15s linear infinite;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
   
   @keyframes slide {
@@ -86,10 +92,19 @@ body {
   }
   
   #stats-container {
+    display: none;
     margin-right: 2%;
+    height: 0;
   }
   
   #clock-container {
-    margin-left: 2%;
-    margin-top: 1%;
+    display: none;
+    /* margin-left: 2%;
+    margin-top: 1%; */
+    height: 0;
   }
+
+  /* #clock-p {
+    height: 0;
+    padding: 0
+  } */

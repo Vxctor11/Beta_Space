@@ -23,7 +23,7 @@ class Player {
             left: this.left + (this.width / 2),
             top :this.top,
             width: 5,
-            height: 10,
+            height: 25,
             backgroundColor: "red",
             element: document.createElement("div")            
         }
